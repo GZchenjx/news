@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.gs.bean">
+
+    <class name="Admin" table="t_admin">
+        <id name="id" column="id">
+            <generator class="uuid"/>
+        </id>
+        <property name="phone" column="phone" />
+        <property name="pwd" column="pwd" />
+
+        <set name="articleTypes">
+            <key column="admin_id"></key>
+            <one-to-many class="com.gs.bean.ArticleType"></one-to-many>
+        </set>
+
+        <set name="articles">
+            <key column="admin_id"></key>
+            <one-to-many class="com.gs.bean.Article"></one-to-many>
+        </set>
+
+    </class>
+
+</hibernate-mapping>

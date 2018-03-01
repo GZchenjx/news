@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.gs.bean">
+
+    <class name="Article" table="t_article">
+        <id name="id" column="id">
+            <generator class="uuid"/>
+        </id>
+        <property name="title" column="title" />
+        <property name="abstracts" column="abstracts" />
+        <property name="content" column="content" />
+        <property name="pubTime" column="pub_time"/>
+
+        <many-to-one name="admin" column="admin_id" class="com.gs.bean.Admin"></many-to-one>
+
+        <many-to-one name="articleType" column="type_id" class="com.gs.bean.ArticleType"></many-to-one>
+
+        <set name="comments">
+            <key column="article_id"></key>
+            <one-to-many class="com.gs.bean.Comment"></one-to-many>
+        </set>
+
+    </class>
+
+</hibernate-mapping>

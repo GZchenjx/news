@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+
+	<package name="admin-package" namespace="/admin" extends="json-default">
+		<action name="*" class="com.gs.controller.AdminController" method="{1}">
+			<result name="page">/admin/login.jsp</result>
+			<result name="login" type="json"></result>
+			<result name="allNews">/admin/allNews.jsp</result>
+			<result name="fenleiNews">/admin/fenleiNews.jsp</result>
+			<result name="fen">/admin/fen.jsp</result>
+			<result name="addNews">/admin/addNews.jsp</result>
+		</action>
+	</package>
+</struts>
